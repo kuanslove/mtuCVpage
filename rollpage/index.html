@@ -1,0 +1,638 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+	<title>Resume of {{ Kuan Xing }}</title>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	
+	<link href="./css/perfect-scrollbar.css" rel="stylesheet">
+	<script src="./js/jquery.mousewheel.js"></script>
+	<script src="./js/perfect-scrollbar.js"></script>
+	
+	
+	<style>
+		html, body {
+			background:url("./files/bg.png");
+
+			width:100%;
+			height:100%;
+			padding:0px;
+			margin:0px;
+			background-color:white;
+			overflow:hidden;
+		}
+		#bg {
+			position:relative;
+			width:100%;
+			height:100%;
+		}
+
+		#nav_bar {
+			position:relative;
+			padding-left:10px;
+			margin:0px;
+			width:100%;
+			height:50px;
+			background-color:rgba(0,0,0,0.2);
+			border-bottom:1px solid rgba(100,100,100,0.3);
+		}
+		
+		#nav_bar .item{
+			transform: skewX(15deg);
+			-ms-transform: skewX(15deg); /* IE 9 */
+			-webkit-transform: skewX(15deg); /* Safari and Chrome */
+margin-left:2px;
+			height:50px;
+			padding-left:30px;
+			padding-right:30px;
+			background-color:rgba(20,20,20,0.2);
+			
+			#margin:0px;
+			float:left;
+			color: rgba(250,250,250,0.03);
+			text-shadow: -1px -1px 5px rgba(250,250,250,0.2), 1px 1px 5px rgba(0,0,0,0.2);
+
+
+			
+			border-top-right-radius:20px;
+			border-bottom-left-radius:20px;
+			
+			
+			-moz-transition:background-color 1s, text-shadow 0.7s;
+			-webkit-transition:background-color 1s, text-shadow 0.7s;
+			-o-transition:background-color 1s, text-shadow 0.7s;
+			transition:background-color 1s, text-shadow 0.7s;
+
+		}
+		
+		#nav_bar .item.select {
+			cursor:pointer;
+			background-color:rgba(200,200,200,0.5);
+			color: rgba(50,50,50,1);
+			text-shadow: 0px 1px 1px rgba(180,180,180,0.8);
+#			box-shadow:0 0 8px 3px rgba(248,203,16,0.8) inset;
+text-shadow: -1px -1px 1px rgba(0,0,0,0.8),1px 1px 1px rgba(255,255,255,0.3);
+		
+			-moz-transition:box-shadow 0.5s;
+			-webkit-transition:box-shadow 0.5s;
+			-o-transition:box-shadow 0.5s;
+			transition:box-shadow 0.5s;
+		}
+		
+		#nav_bar .item:hover {
+			cursor:pointer;
+			background-color:rgba(200,200,200,0.4);
+			text-shadow: -1px -1px 2px rgba(0,0,0,0.8),1px 1px 2px rgba(255,255,255,0.3);
+		}
+
+		#nav_bar .item.select:hover {
+			cursor:pointer;
+			background-color:rgba(200,200,200,0.5);
+color: rgba(50,50,50,1);
+			text-shadow: -1px -1px 1px rgba(0,0,0,0.8),1px 1px 1px rgba(255,255,255,0.3);
+		}
+		
+		#nav_bar .item .unskew {
+			position:relative;
+			top:0px;
+			line-height:40px;
+			font-size:40px;
+			transform: skewX(-15deg);
+			-ms-transform: skewX(-15deg); /* IE 9 */
+			-webkit-transform: skewX(-15deg); /* Safari and Chrome */
+		}
+		
+		#nav_bar .logo {
+			position:fixed;
+			right:0px;
+			width:250px;
+			transform: skewX(15deg);
+			-ms-transform: skewX(15deg); /* IE 9 */
+			-webkit-transform: skewX(15deg); /* Safari and Chrome */
+
+			top:0px;
+			height:50px;
+			padding-left:0px;
+			padding-right:0px;
+			background-color:rgba(20,20,20,0.6);
+			margin:0px;
+			color: rgba(250,250,250,0.03);
+			text-shadow: -1px -1px 5px rgba(250,250,250,0.2), 1px 1px 5px rgba(0,0,0,0.2);
+		}
+		
+		#nav_bar .logo .unskew {
+			position:relative;
+			left:25px;
+			top:0px;
+			height:50px;
+			width:280px;
+			background: url("./files/logo.png");
+			background-repeat: no-repeat;
+			
+			transform: skewX(-15deg);
+			-ms-transform: skewX(-15deg); /* IE 9 */
+			-webkit-transform: skewX(-15deg); /* Safari and Chrome */
+		}
+		
+		#gear_frame {
+			position:fixed;
+			width:550px;
+			height:550px;
+			right:-280px;
+			bottom:-280px;
+			border:10px rgba(0,0,0,0.5) dotted;
+			border-radius:280px;
+			background:url("./files/gear.png");
+			
+			transform: rotate(0deg);
+			-ms-transform: rotate(0deg); /* IE 9 */
+			-webkit-transform: rotate(0deg); /* Safari and Chrome */
+			
+			-moz-transition:transform 2s ease-out;
+			-webkit-transition:-webkit-transform 2s ease-out;
+			-o-transition:transform 2s ease-out;
+			transition:transform 2s ease-out;
+			
+		}
+		#footer {
+			padding-top:10px;
+			padding-left:20px;
+			padding-right:20px;
+			position:fixed;
+			bottom:0px;
+			left:0px;
+			border-top-right-radius:40px;
+			height:80px;
+			width:600px;
+			border:1px solid black;
+			background-color:rgba(20,20,20,0.1);
+			font-size:20px;
+			color: rgba(10,10,10,0.1);
+			text-shadow:1px 1px 5px rgba(250,250,250,0.3), -1px -1px 5px rgba(20,20,20,0.3);
+			
+			-moz-transition:background-color 1s, color 1s, text-shadow 1s;
+			-webkit-transition:background-color 1s, color 1s, text-shadow 1s;
+			-o-transition:background-color 1s, color 1s, text-shadow 1s;
+			transition:background-color 1s, color 1s, text-shadow 1s;
+			
+		}		
+		#footer:hover {
+			padding-top:10px;
+			padding-left:20px;
+			padding-right:20px;
+			position:fixed;
+			bottom:0px;
+			left:0px;
+			border-top-right-radius:40px;
+			height:80px;
+			width:600px;
+			border:1px solid black;
+			background-color:rgba(200,200,200,0.3);
+			font-size:20px;
+			color: rgba(10,10,10,0.8);
+			text-shadow:1px 1px 2px rgba(250,250,250,0.3), -1px -1px 1px rgba(20,20,20,0.3);
+		}
+		
+		.item_cont {
+			position:absolute;
+			border: 2px solid rgba(250,250,250,0.1);
+			width:1000px;
+			height:700px;
+			padding-left:20px;
+			padding-top:20px;
+			border-radius:20px;
+			background: rgba(10,10,10,0.7);
+#			box-shadow:0 5px 30px 1px #DEB70B;
+			overflow:hidden;
+		}
+		
+		.item_cont#main_cont {
+			right:450px;
+			bottom:420px;
+
+			transform: rotate(0deg);
+			transform-origin:100% 100%;
+			-ms-transform: rotate(0deg); /* IE 9 */
+			-ms-transform-origin:100% 100%;
+			-webkit-transform: rotate(0deg); /* Safari and Chrome */
+			-webkit-transform-origin:100% 100%;
+		}
+		.item_cont#projects_cont {
+			right:420px;
+			bottom:100px;					
+
+			transform: rotate(-90deg);
+			transform-origin:100% 100%;
+			-ms-transform: rotate(-90deg); /* IE 9 */
+			-ms-transform-origin:100% 100%;
+			-webkit-transform: rotate(-90deg); /* Safari and Chrome */
+			-webkit-transform-origin:100% 100%;
+		}		
+		.item_cont#education_cont {	
+			
+			right:100px;
+			bottom:120px;	
+					
+			transform: rotate(-180deg);
+			transform-origin:100% 100%;
+			-ms-transform: rotate(-180deg); /* IE 9 */
+			-ms-transform-origin:100% 100%;
+			-webkit-transform: rotate(-180deg); /* Safari and Chrome */
+			-webkit-transform-origin:100% 100%;
+		}		
+		.item_cont#me_cont {
+			
+			right:120px;
+			bottom:450px;
+						
+			transform: rotate(-270deg);
+			transform-origin:100% 100%;
+			-ms-transform: rotate(-270deg); /* IE 9 */
+			-ms-transform-origin:100% 100%;
+			-webkit-transform: rotate(-270deg); /* Safari and Chrome */
+			-webkit-transform-origin:100% 100%;
+		}
+		
+		.panel {
+			font-size:15px;
+			background-color:rgba(200,200,200,0.3);
+			color: rgba(10,10,10,0.8);
+			text-shadow:1px 1px 2px rgba(250,250,250,0.3), -1px -1px 1px rgba(20,20,20,0.3);
+			border-radius:5px;
+			position:absolute;
+			left:20px;
+			top:20px;
+			overflow:hidden;
+		}
+		.panel li {
+			margin-bottom:20px;
+			font-size:20px;
+		}
+		a:link {text-decoration:none;color: rgba(10,10,10,0.8);}
+		a:visited {text-decoration:none;color: rgba(10,10,10,0.8);}
+		a:hover {text-decoration:none;color: rgba(10,10,10,0.8);}
+		a:active {text-decoration:none;color: rgba(10,10,10,0.8);}
+	</style>
+	
+</head>
+
+<body>
+	
+	<div id="bg">
+		
+		<div id="nav_bar">
+			<div class="item select" id="main" pos="0">
+				<div class="unskew">
+					Main
+				</div>
+			</div>
+			<div class="item" id="projects" pos="90">
+				<div class="unskew">
+					Projects
+				</div>
+			</div>
+			<div class="item" id="education" pos="180">
+				<div class="unskew">
+					Education
+				</div>
+			</div>
+			<div class="item " id="me" pos="270">
+				<div class="unskew">
+					Me
+				</div>
+			</div>
+			<div class="logo">
+				<div class="unskew">
+				</div>
+			</div>
+		</div>
+		
+		<div id="gear_frame">
+
+			<div class="item_cont cont_select" id="main_cont">
+<div class="panel">
+	<h1 style="text-align:center;">Welcome</h1>
+	<ul style="list-style:none;">
+		<li>
+			<p>This is my personal page, a manual to find how about me.</p>
+		</li>
+		<li>
+			<p>I divide my info into 3 parts (They are shown in top navigation bar of this page):<br>
+			<ul>
+				<li>
+					<b>PROJECTS</b>: Coding or Experiment description for my internship work and academic study.
+				</li>
+				<li>
+					<b>EDUCATION</b>: Where I am studying / studied, what I have got.
+				</li>
+				<li>
+					<b>ME</b>: My contact info, interested area, current objective and My Resume Link.
+				</li>
+			</ul>
+			</p>
+		</li>
+		<li><div style="height:50px;"></div></li>
+		<li>
+			<p>
+				PS: I fully hand-coded this whole page, no IDE tool used, 
+				there may not be too many professional compatible plugins.<br>
+				So, Firefox or Chrome browser are highly recommended for best experience.
+			</p>
+			
+		</li>
+		<li><div style="height:100px;">Finally, Nice to meet U.</div></li>
+		<li>
+			<div style="float:right; right:0px; height:30px; width:200px;">
+				<a href="mailto:kuanslove@gmail.com" title="kuanslove@gmail.com">
+					Kuan.Xing [mail]
+				</a>
+			</div>
+		</li>
+		
+	</ul>
+	
+</div>
+			</div>
+			<div class="item_cont" id="projects_cont">
+<div class="panel">
+	
+	<h1 style="text-align:center;">WEB / Mobile Application Development</h1>
+	<ul>
+		<li>
+			<div>Jan 2013 ~ Aug 2013</div>
+			<div><b>SRS Pharmacy, Inc</b></div>
+			<div><i>Software Developer Intern</i></div>
+			<br>
+			<ol>
+				<li>Developed patient signature conversion and exportation tool using C++, PostgreSQL, 
+LibGD. This tool can fetch patient signature stroke data from database, generate graphic files with specific size and package them with CVS format summary table.</li>
+				<li>Developed  patient SMS informing GUI module using C++, PostgreSQL, wxWidgets. 
+This tool provides user graphical interface to input SMS message for patient informing. It uses existing system interface to create/retrieve SMS history.</li>
+				<li>Developed Online Grocery Store whole website using NodeJS ( ExpressJS, PG), HTML5, 
+jQuery, CSS,  PostgreSQL. This website implements Ajax and HTML5 front-end file processing feature to reduce 
+back-end pressure and enhance user experience. The entire website includes Customer view and Admin view, 
+which allows owner of the website to manage product and user info easily.</li>
+			</ol>
+		</li>
+		<li>
+			<div>Sep 2007 ~ May 2011</div>
+			<div><b>Air China Cargo Co., Ltd</b></div>
+			<div><i>System Engineer</i></div>
+			<br>
+			<ol>
+				<li>Setup Engineering Document management server using Apache, Python, HTML, JavaScript, 
+CSS. This server uses Python script as CGI application to periodically scan Apache document directory and 
+generate updated document category list for the convenient purpose of Engineering Retrieval. This project 
+efficiently reduce working hour and cost for Document management comparing with traditional manually managing.</li>
+				<li>Setup Engineering training server and took charge of video editing using MS IIS server and MediaEncoder.</li>
+				<li>Developed Air-Ground data report parsing tool using Python. This project uses Python 
+script to read in  Air-Ground data report gateway interface and convert the raw data report into formated 
+report file and generate report file list by update time order.</li>
+			</ol>
+		</li>
+	</ul>
+	
+</div>
+			</div>
+			<div class="item_cont" id="education_cont">
+<div class="panel">
+	<h1 style="text-align:center;">M.S in Computer Engineering</h1>
+	<ul>
+		<li>
+			<div>(Expected Dec,2013)</div>
+			<div>GPA:3.55</div>
+			<div>Main Courseworks: <i>Computer Networking, Computer Networking and Security,
+			Computer Networking Administration, 
+			Computer Graphics, Data Visualization, Embedded System Programming</i></div>
+			<div><b>Master of Science(M.S.)</b> in Computer Engineering, 
+			<b><a href="http://www.mtu.edu" target="blank" style="cursor:pointer;">
+				Michigan Technological University
+				</a>
+			</b><br></div>
+		</li>
+		<li>
+			<div>May,2007</div>
+			<div>GPA:3.58</div>
+			<div>Main Courseworks: <i>Calculus, C Programming, Database Managment, Signal and System,
+			 Single-chip programming, Circuit, Digital Communication</i></div>
+			<div><b>Bachelor of Science(B.S.)</b> in Electronic Infomation Engineering, 
+			<b><a href="http://www.cauc.edu.cn" target="blank" style="cursor:pointer;">
+				Civil Aviation University of China
+				</a>
+			</b><br></div>
+		</li>
+	</ul>
+</div>
+			</div>
+			<div class="item_cont" id="me_cont">
+<div class="panel">
+	<br><br>
+	<a  href="http://www.ece.mtu.edu/~kxing/CV_KuanXing.pdf"><h1>Please [[CLICK]] and download my CV here.</h1></a>
+</div>
+			</div>
+
+		</div>
+		
+		<div id="footer">
+			“Don’t think and don’t worry. When the times comes, you’ll know what to do.”<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			- Helen Parr, The Incredibles</p>
+		</div>
+		
+	</div>
+
+	<script>
+		jQuery(function($){
+
+			var w = $(window).width()-250;
+			var h = $(window).height()-270;
+
+$('.panel').perfectScrollbar({
+  wheelSpeed: 20,
+  wheelPropagation: true,
+  minScrollbarLength: 20
+});
+
+$('.panel').height(h-20);
+$('.panel').width(w-20);
+$('.panel').perfectScrollbar('update');
+
+			if(w>0 && h>0) {
+				$(".item_cont").width(w);
+				$(".item_cont").height(h);
+			}
+			
+			$("#nav_bar .item").click(function(){
+				$("#nav_bar .item").removeClass("select");
+				$(this).addClass("select");
+				var angle = $(this).attr("pos")+"deg";
+				var action = "rotate("+angle+")";
+				$("#gear_frame").css("transform", action)
+				.css("-ms-transform", action).css("-webkit-transform", action);
+
+			});
+			
+			$(window).resize(function(){
+				var tw = $(window).width()-250;
+				var th = $(window).height()-270;
+
+				if(tw>0 && th>0) {
+					w=tw;
+					h=th;
+					$(".item_cont").width(w);
+					$(".item_cont").height(h);			
+				}
+				
+				
+				
+				
+$('.panel').height(h-20);
+$('.panel').width(w-20);
+$('s.panel').perfectScrollbar('update');
+			});
+			
+			
+			
+			
+			
+			
+		});
+	</script>
+	
+	
+<!--Simply copy and paste into <BODY>  
+     Just above the </BODY> tag. -->
+
+<SCRIPT type="text/javascript">
+/*
+Snow Fall 1 - no images - Java Script
+Visit http://rainbow.arch.scriptmania.com/scripts/
+  for this script and many more
+*/
+
+// Set the number of snowflakes (more than 30 - 40 not recommended)
+var snowmax=35
+
+// Set the colors for the snow. Add as many colors as you like
+var snowcolor=new Array("#aaaacc","#ddddff","#ccccdd","#f3f3f3","#f0ffff")
+
+// Set the fonts, that create the snowflakes. Add as many fonts as you like
+var snowtype=new Array("Times","Arial","Times","Verdana")
+
+// Set the letter that creates your snowflake (recommended: * )
+var snowletter="*"
+
+// Set the speed of sinking (recommended values range from 0.3 to 2)
+var sinkspeed=0.6
+
+// Set the maximum-size of your snowflakes
+var snowmaxsize=30
+
+// Set the minimal-size of your snowflakes
+var snowminsize=8
+
+// Set the snowing-zone
+// Set 1 for all-over-snowing, set 2 for left-side-snowing
+// Set 3 for center-snowing, set 4 for right-side-snowing
+var snowingzone=1
+
+///////////////////////////////////////////////////////////////////////////
+// CONFIGURATION ENDS HERE
+///////////////////////////////////////////////////////////////////////////
+
+
+// Do not edit below this line
+var snow=new Array()
+var marginbottom
+var marginright
+var timer
+var i_snow=0
+var x_mv=new Array();
+var crds=new Array();
+var lftrght=new Array();
+var browserinfos=navigator.userAgent
+var ie5=document.all&&document.getElementById&&!browserinfos.match(/Opera/)
+var ns6=document.getElementById&&!document.all
+var opera=browserinfos.match(/Opera/)
+var browserok=ie5||ns6||opera
+
+function randommaker(range) {
+        rand=Math.floor(range*Math.random())
+    return rand
+}
+
+function initsnow() {
+        if (ie5 || opera) {
+                marginbottom = document.body.scrollHeight
+                marginright = document.body.clientWidth-15
+        }
+        else if (ns6) {
+                marginbottom = document.body.scrollHeight
+                marginright = window.innerWidth-15
+        }
+        var snowsizerange=snowmaxsize-snowminsize
+        for (i=0;i<=snowmax;i++) {
+                crds[i] = 0;
+            lftrght[i] = Math.random()*15;
+            x_mv[i] = 0.03 + Math.random()/10;
+                snow[i]=document.getElementById("s"+i)
+                snow[i].style.fontFamily=snowtype[randommaker(snowtype.length)]
+                snow[i].size=randommaker(snowsizerange)+snowminsize
+                snow[i].style.fontSize=snow[i].size+'px';
+                snow[i].style.color=snowcolor[randommaker(snowcolor.length)]
+                snow[i].style.zIndex=1000
+                snow[i].sink=sinkspeed*snow[i].size/5
+                if (snowingzone==1) {snow[i].posx=randommaker(marginright-snow[i].size)}
+                if (snowingzone==2) {snow[i].posx=randommaker(marginright/2-snow[i].size)}
+                if (snowingzone==3) {snow[i].posx=randommaker(marginright/2-snow[i].size)+marginright/4}
+                if (snowingzone==4) {snow[i].posx=randommaker(marginright/2-snow[i].size)+marginright/2}
+                snow[i].posy=randommaker(2*marginbottom-marginbottom-2*snow[i].size)
+                snow[i].style.left=snow[i].posx+'px';
+                snow[i].style.top=snow[i].posy+'px';
+        }
+        movesnow()
+}
+
+function movesnow() {
+        for (i=0;i<=snowmax;i++) {
+                crds[i] += x_mv[i];
+                snow[i].posy+=snow[i].sink
+                snow[i].style.left=snow[i].posx+lftrght[i]*Math.sin(crds[i])+'px';
+                snow[i].style.top=snow[i].posy+'px';
+
+                if (snow[i].posy>=marginbottom-2*snow[i].size || parseInt(snow[i].style.left)>(marginright-3*lftrght[i])){
+                        if (snowingzone==1) {snow[i].posx=randommaker(marginright-snow[i].size)}
+                        if (snowingzone==2) {snow[i].posx=randommaker(marginright/2-snow[i].size)}
+                        if (snowingzone==3) {snow[i].posx=randommaker(marginright/2-snow[i].size)+marginright/4}
+                        if (snowingzone==4) {snow[i].posx=randommaker(marginright/2-snow[i].size)+marginright/2}
+                        snow[i].posy=0
+                }
+        }
+        var timer=setTimeout("movesnow()",50)
+}
+
+for (i=0;i<=snowmax;i++) {
+        document.write("<span id='s"+i+"' style='position:absolute;top:-"+snowmaxsize+"'>"+snowletter+"</span>")
+}
+if (browserok) {
+        window.onload=initsnow
+}
+
+</SCRIPT>
+<!--
+<p><font face="arial" size="-2">Free JavaScript from </font><br><font face="arial, helvetica" size="-2"><a href="http://rainbow.arch.scriptmania.com/scripts/">Rainbow Arch</a></font></p>
+-->
+
+
+	
+</body>
+
+</html>
